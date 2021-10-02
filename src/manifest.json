@@ -1,0 +1,23 @@
+{
+    "name": "WeBeep Last Edit",
+    "description": "Adds the last edit date in WeBeep pages",
+    "version": "0.1",
+    "manifest_version": 3,
+    "homepage_url": "https://github.com/lucamora/webeep-last",
+    
+    "content_scripts": [
+        {
+            "matches": [
+                "*://webeep.polimi.it/mod/folder/view.php?id=*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+
+    "action": {
+        "default_title": "WeBeep Last Edit"
+    }
+}  

@@ -1,0 +1,10 @@
+.last-edit-date {
+    display: flex;
+    font-size: 10px;
+    margin-left: auto;
+    visibility: hidden;
+}
+
+.last-edit-date-show {
+    visibility: visible;
+}

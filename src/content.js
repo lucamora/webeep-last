@@ -3,6 +3,8 @@ var http = new XMLHttpRequest();
 
 (function process(index) {
     if (index >= list.length) {
+        // show last edit when all dates have been loaded
+        showLastEdit();
         return;
     }
 
@@ -11,6 +13,7 @@ var http = new XMLHttpRequest();
         return;
     }
 
+    // get url of the linked file
     var url = list[index].getElementsByTagName('a')[0].getAttribute('href').split('?')[0];
 
     http.open('HEAD', url);
@@ -18,9 +21,11 @@ var http = new XMLHttpRequest();
         if (this.readyState == this.DONE) {
             var head = http.getAllResponseHeaders().match(/last-modified:.*\r\n/i);
             var date = new Date(head[0].substring(14).trim());
-            var lastModified = ' (' + formatDate(date) + ')';
 
-            list[index].getElementsByTagName('a')[0].getElementsByClassName('fp-filename')[0].innerText += lastModified;
+            var edit = document.createElement('i');
+            edit.className = 'last-edit-date'
+            edit.innerText = formatDate(date);
+            list[index].getElementsByTagName('a')[0].appendChild(edit);
 
             process(index + 1);
         }
@@ -28,6 +33,11 @@ var http = new XMLHttpRequest();
     http.send();
 })(0);
 
+function showLastEdit() {
+    Array.from(document.getElementsByClassName('last-edit-date')).forEach((e) => {
+        e.classList.add('last-edit-date-show');
+    });
+}
 
 function formatDate(d) {
     var str = pad(d.getDate()) + '/' + pad(d.getMonth()+1) + '/' + trim(d.getFullYear());

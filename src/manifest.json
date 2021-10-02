@@ -1,7 +1,7 @@
 {
     "name": "WeBeep Last Edit",
     "description": "Adds the last edit date in WeBeep pages",
-    "version": "0.1",
+    "version": "1.0",
     "manifest_version": 3,
     "homepage_url": "https://github.com/lucamora/webeep-last",
     
@@ -12,6 +12,9 @@
             ],
             "js": [
                 "content.js"
+            ],
+            "css": [
+                "style.css"
             ],
             "run_at": "document_idle"
         }

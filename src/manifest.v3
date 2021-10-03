@@ -1,8 +1,8 @@
 {
     "name": "WeBeep Last Edit",
     "description": "Adds the last edit date in WeBeep pages",
-    "version": "1.1",
-    "manifest_version": 2,
+    "version": "1.2",
+    "manifest_version": 3,
     "homepage_url": "https://github.com/lucamora/webeep-last",
     
     "content_scripts": [
@@ -20,7 +20,7 @@
         }
     ],
 
-    "browser_action": {
+    "action": {
         "default_title": "WeBeep Last Edit",
         "default_icon": {
             "16": "/images/icon16.png",
